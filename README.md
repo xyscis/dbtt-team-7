@@ -1,6 +1,6 @@
 # DBTT G10 Team 7
 
-This template should help get you started developing with Vue 3 in Vite.
+This is G10 Team 7 prototype where we aim to help Southwest Airlines (SA) to improve their operational efficiency through our ' "SA" operations website '.
 
 ## Recommended IDE Setup
 
@@ -22,8 +22,6 @@ npm install
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Technologies Used to Develop the Website
+Vue, Javascript, HTML, CSS
 
-```sh
-npm run build
-```
