@@ -16,6 +16,7 @@
     padding: 20px 0;
     font-size: 0.9rem;
     border-top: 1px solid #e7e7e7;
+    color: black;
   }
   
   .container {
