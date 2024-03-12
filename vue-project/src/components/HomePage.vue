@@ -49,13 +49,16 @@ import CommunityIcon from './icons/IconCommunity.vue'
     <template #icon>
       <CommunityIcon />
     </template>
-    <template #heading>
-      <div class="text-dark"><strong>Live Chat</strong></div>
-    </template>
+    <router-link to="/lc" type="button" class="btn btn-outline-light">
+      <div class="text-dark text-start"><h3>Live Chat</h3></div>
+    
 
-    <p>Allows you to interact with the customers to know their details to help you in rescheduling their flight efficiently</p>
+    <p class="text-start text-dark">Allows you to interact with the customers to know their details to help you in rescheduling their flight efficiently</p>
+    </router-link>
   </WelcomeItem>
   </div>
+
+<router-link to="/login" type="button" class="btn">Login</router-link>
   
 </template>
 

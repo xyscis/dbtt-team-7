@@ -33,6 +33,7 @@
 
 <script>
 export default {
+    name: 'LiveChat',
     data() {
         return {
             newMessage: '',
