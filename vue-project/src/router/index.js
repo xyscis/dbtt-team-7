@@ -1,30 +1,37 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from '../components/HomePage.vue'
+import Home from '@/components/HomePage.vue'
 import PassengerManagement from "@/components/PassengerManagement.vue";
 import LiveChat from "@/components/LiveChat.vue";
 import Login  from "@/components/Login.vue";
+import FlightReassignment from "@/components/FlightReassignment.vue";
 
 const routes = [
     {
         path: '/',
-        name: 'home',
+        name: 'Login',
+        component: Login
+    },
+    {
+        path: '/home',
+        name: 'Home',
         component: Home
     },
     {
-        path: '/pm',
+        path: '/passengermanagement',
         name: 'PassengerManagement',
         component: PassengerManagement
     },
     {
-        path: '/lc',
+        path: '/livechat',
         name: 'LiveChat',
         component: LiveChat
     },
     {
-        path: '/login',
-        name: 'Login',
-        component: Login
-    },
+        path: '/flightreassignment',
+        name: 'FlightReassignment',
+        component: FlightReassignment
+    }
+    
 
 
 ]

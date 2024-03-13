@@ -1,17 +1,19 @@
 <template>
-    <div class="login-container">
-        <form @submit.prevent="login">
-            <h2>Login</h2>
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" v-model="credentials.username" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" v-model="credentials.password" required>
-            </div>
-            <button type="submit">Login</button>
-        </form>
+    <div>
+        <div class="login-container ">
+            <form @submit.prevent="login">
+                <h2>Login</h2>
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" v-model="credentials.username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" v-model="credentials.password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -29,7 +31,8 @@ export default {
         login() {
             // default username and password for login
             if (this.credentials.username === 'john' && this.credentials.password === 'password123') {
-                this.$router.push({ name: 'home' });
+                console.log('Login successful');
+                this.$router.push({ name: 'Home' });
             } else {
                 alert('Incorrect username or password!');
             }

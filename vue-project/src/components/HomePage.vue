@@ -18,11 +18,12 @@ import CommunityIcon from './icons/IconCommunity.vue'
     <template #icon>
       <DocumentationIcon />
     </template>
-    <template #heading>
-      <div class="text-dark"><strong>Flight Reassignment</strong></div>
-    </template>
+    <router-link to="/flightreassignment" type="button" class="btn btn-outline-light">
+      <div class="text-dark text-start"><h3>Flight Reassignment</h3></div>
+    
 
-    <p>Allows you to reassign planes and crews in response to flight cancellations or disruptions</p>
+    <p class="text-start text-dark">Allows you to reassign planes and crews in response to flight cancellations or disruptions</p>
+  </router-link>
   </WelcomeItem>
 
   
@@ -31,7 +32,7 @@ import CommunityIcon from './icons/IconCommunity.vue'
       <template #icon>
         <ToolingIcon />
       </template>
-      <router-link to="/pm" type="button" class="btn btn-outline-light">
+      <router-link to="/passengermanagement" type="button" class="btn btn-outline-light">
         <div class="text-dark text-start"><h3>Passenger Management</h3></div>
     
 
@@ -49,7 +50,7 @@ import CommunityIcon from './icons/IconCommunity.vue'
     <template #icon>
       <CommunityIcon />
     </template>
-    <router-link to="/lc" type="button" class="btn btn-outline-light">
+    <router-link to="/livechat" type="button" class="btn btn-outline-light">
       <div class="text-dark text-start"><h3>Live Chat</h3></div>
     
 
@@ -58,7 +59,7 @@ import CommunityIcon from './icons/IconCommunity.vue'
   </WelcomeItem>
   </div>
 
-<router-link to="/login" type="button" class="btn">Login</router-link>
+
   
 </template>
 
