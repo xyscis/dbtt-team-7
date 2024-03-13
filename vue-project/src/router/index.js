@@ -5,6 +5,7 @@ import LiveChat from "@/components/LiveChat.vue";
 import Login  from "@/components/Login.vue";
 import FlightReassignment from "@/components/FlightReassignment.vue";
 
+
 const routes = [
     {
         path: '/',
@@ -30,7 +31,8 @@ const routes = [
         path: '/flightreassignment',
         name: 'FlightReassignment',
         component: FlightReassignment
-    }
+    },
+    
     
 
 
