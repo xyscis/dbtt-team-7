@@ -41,7 +41,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .login-container {
     max-width: 300px;
     margin: auto;
