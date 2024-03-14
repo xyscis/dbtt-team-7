@@ -44,6 +44,9 @@ export default {
 </script>
 
 
+
+
+
 <!-- styling for the login page -->
 <style scoped>
 .login-wrapper {
@@ -53,6 +56,7 @@ export default {
     height: 70vh;
     width: 70vw;
 }
+
 
 .login-container {
     max-width: 300px;
