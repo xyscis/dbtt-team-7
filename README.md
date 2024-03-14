@@ -15,6 +15,15 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 ```sh
 npm install
 ```
+### Install Boostrap
+```sh
+npm install bootstrap
+```
+
+### Instal Vue-Router
+```sh
+npm install vue-router@latest
+```
 
 ### Compile and Hot-Reload for Development
 
