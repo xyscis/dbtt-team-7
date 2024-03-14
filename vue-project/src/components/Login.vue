@@ -1,18 +1,20 @@
 <template>
     <div>
-        <div class="login-container ">
-            <form @submit.prevent="login">
-                <h2>Login</h2>
-                <div class="input-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" v-model="credentials.username" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" v-model="credentials.password" required>
-                </div>
-                <button type="submit">Login</button>
-            </form>
+        <div class="login-wrapper">
+            <div class="login-container ">
+                <form @submit.prevent="login">
+                    <h2>Login</h2>
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" v-model="credentials.username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" v-model="credentials.password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
         </div>
     </div>
 </template>
@@ -41,7 +43,17 @@ export default {
 }
 </script>
 
+
+<!-- styling for the login page -->
 <style scoped>
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: 70vw;
+}
+
 .login-container {
     max-width: 300px;
     margin: auto;
