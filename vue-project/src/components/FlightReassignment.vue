@@ -7,7 +7,8 @@
         </div>
         <div class="content">
           <div class="chart">
-            <img src="../assets/barchart.PNG" alt="Bar Chart">
+            <img v-if="showOriginalImage" src="../assets/barchart.PNG" alt="Original Bar Chart">
+            <img v-else src="../assets/barchart2.PNG" alt="New Bar Chart">
           </div>
           <div class="data-section">
             <div class="search">
@@ -15,12 +16,6 @@
                 <option value="">All Availabilities</option>
                 <option value="Available">Available</option>
                 <option value="Unavailable">Unavailable</option>
-              </select>
-              <select v-model="typeFilter">
-                <option value="">All Types</option>
-                <option value="Boeing 737-800">Boeing 737-800</option>
-                <option value="Boeing 737 MAX 8">Boeing 737 MAX 8</option>
-                <option value="Boeing 737-700">Boeing 737-700</option>
               </select>
               <select v-model="destinationFilter">
                 <option value="">All Destinations</option>
@@ -35,6 +30,7 @@
                 <option value="New York">New York</option>
                 <option value="Georgia">Georgia</option>
               </select>
+              <button v-on:click="sendData">Send</button>
               <!-- <input type="text" placeholder="Search crews and airplanes..." v-model="searchQuery"> -->
             </div>
             <div class="table-container">
@@ -48,7 +44,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(airplane, index) in airplanes" :key="index">
+                  <tr v-for="(airplane, index) in filteredAirplanes" :key="index">
                     <td>{{ airplane.name }}</td>
                     <td>{{ airplane.type }}</td>
                     <td>{{ airplane.availability }}</td>
@@ -72,7 +68,8 @@ export default {
       availabilityFilter: '',
       typeFilter: '',
       destinationFilter: '',
-      airplanes: Array.from({ length: 100 }, (_, i) => {
+      showOriginalImage: true,
+      airplanes: Array.from({ length: 1000 }, (_, i) => {
         const states = ["Florida", "Arizona", "Texas", "Washington", "Illinois", "Nevada", "Colorado", "California", "New York", "Georgia"];
         const aircraftTypes = ["Boeing 737-800", "Boeing 737 MAX 8", "Boeing 737-700"];
         return {
@@ -90,10 +87,18 @@ export default {
         const matchesType = this.typeFilter === '' || airplane.type.includes(this.typeFilter);
         const matchesAvailability = this.availabilityFilter === '' || airplane.availability.includes(this.availabilityFilter);
         const matchesDestination = this.destinationFilter === '' || airplane.destination.includes(this.destinationFilter);
-        return matchesType && matchesAvailability && matchesDestination;
+        return matchesAvailability && matchesDestination;
       });
     },
   },
+  methods: {
+    sendData() {
+     
+      // alert('Send data functionality goes here.');
+      this.showOriginalImage = !this.showOriginalImage; // Toggle the image when 'Send' is clicked
+
+    }
+  }
 };
 </script>
 
@@ -101,8 +106,9 @@ export default {
 <style scoped>
 .wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
+  align-items: left;
   height: 70vh;
   width: 70vw;
 }
@@ -126,11 +132,13 @@ export default {
 }
 
 .chart, .data-section {
-  width: 50%; /* Adjust width as needed */
+  width: 100%; /* Adjust width as needed */
 }
 
 .chart img {
   width: 100%;
+  max-width: 800px; 
+  
 }
 
 .table-container {
