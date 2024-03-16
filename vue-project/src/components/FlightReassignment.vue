@@ -2,60 +2,86 @@
   <div>
     <div class="wrapper">
       <div class="container">
-        <div class="header">
-          Flight Reassignment
-        </div>
-        <div class="content">
-          <div class="chart">
-            <img v-if="showOriginalImage" src="../assets/barchart.PNG" alt="Original Bar Chart">
-            <img v-else src="../assets/barchart2.PNG" alt="New Bar Chart">
-          </div>
-          <div class="data-section">
-            <div class="search">
-              <select v-model="availabilityFilter">
-                <option value="">All Availabilities</option>
-                <option value="Available">Available</option>
-                <option value="Unavailable">Unavailable</option>
-              </select>
-              <select v-model="destinationFilter">
-                <option value="">All Destinations</option>
-                <option value="Florida">Florida</option>
-                <option value="Arizona">Arizona</option>
-                <option value="Texas">Texas</option>
-                <option value="Washington">Washington</option>
-                <option value="Illinois">Illinois</option>
-                <option value="Nevada">Nevada</option>
-                <option value="Colorado">Colorado</option>
-                <option value="California">California</option>
-                <option value="New York">New York</option>
-                <option value="Georgia">Georgia</option>
-              </select>
-              <button v-on:click="sendData">Send</button>
-              <!-- <input type="text" placeholder="Search crews and airplanes..." v-model="searchQuery"> -->
+
+        <div class="row content">
+          <div class="row">
+            <div class="col chart">
+              <div class="title">
+                Real-time monitoring on the number of flight requests
+              </div>
+              <img
+                v-if="showOriginalImage"
+                src="../assets/barchart.PNG"
+                alt="Original Bar Chart"
+              />
+              <img v-else src="../assets/barchart2.PNG" alt="New Bar Chart" />
             </div>
-            <div class="table-container">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Airplane</th>
-                    <th>Type</th>
-                    <th>Availability</th>
-                    <th>Destination</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(airplane, index) in filteredAirplanes" :key="index">
-                    <td>{{ airplane.name }}</td>
-                    <td>{{ airplane.type }}</td>
-                    <td>{{ airplane.availability }}</td>
-                    <td>{{ airplane.destination }}</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="col chart">
+              <div class="title">
+                Forcast data
+              </div>
+              <img
+                src="../assets/regression model.PNG"
+                alt="Original Bar Chart"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="data-section">
+              <div class="search">
+                <select v-model="availabilityFilter">
+                  <option value="">All Availabilities</option>
+                  <option value="Available">Available</option>
+                  <option value="Unavailable">Unavailable</option>
+                </select>
+                <select v-model="destinationFilter">
+                  <option value="">All Destinations</option>
+                  <option value="Florida">Florida</option>
+                  <option value="Arizona">Arizona</option>
+                  <option value="Texas">Texas</option>
+                  <option value="Washington">Washington</option>
+                  <option value="Illinois">Illinois</option>
+                  <option value="Nevada">Nevada</option>
+                  <option value="Colorado">Colorado</option>
+                  <option value="California">California</option>
+                  <option value="New York">New York</option>
+                  <option value="Georgia">Georgia</option>
+                </select>
+                <button v-on:click="sendData">Send</button>
+              </div>
+              <div class="table-container">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Airplane</th>
+                      <th>Type</th>
+                      <th>Availability</th>
+                      <th>Destination</th>
+                      <th>Crew</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(flight, index) in filteredFlights" :key="index">
+                      <td>{{ flight.airplane.name }}</td>
+                      <td>{{ flight.airplane.type }}</td>
+                      <td>{{ flight.airplane.availability }}</td>
+                      <td>{{ flight.airplane.destination }}</td>
+                      <td>{{ flight.crew }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div v-if="flightsAssigned" class="popup">
+    <div class="popup-content">
+      <p>Flights have been assigned successfully!</p>
+      <button @click="flightsAssigned = false">Close</button>
     </div>
   </div>
 </template>
@@ -65,49 +91,82 @@ export default {
   data() {
     return {
       searchQuery: "",
-      availabilityFilter: '',
-      typeFilter: '',
-      destinationFilter: '',
+      availabilityFilter: "",
+      typeFilter: "",
+      destinationFilter: "",
       showOriginalImage: true,
-      airplanes: Array.from({ length: 1000 }, (_, i) => {
-        const states = ["Florida", "Arizona", "Texas", "Washington", "Illinois", "Nevada", "Colorado", "California", "New York", "Georgia"];
-        const aircraftTypes = ["Boeing 737-800", "Boeing 737 MAX 8", "Boeing 737-700"];
+      flights: Array.from({ length: 1000 }, (_, i) => {
+        const states = [
+          "Florida",
+          "Arizona",
+          "Texas",
+          "Washington",
+          "Illinois",
+          "Nevada",
+          "Colorado",
+          "California",
+          "New York",
+          "Georgia",
+        ];
+        const aircraftTypes = [
+          "Boeing 737-800",
+          "Boeing 737 MAX 8",
+          "Boeing 737-700",
+        ];
+        const crewMembers = [
+          "Pilot 1",
+          "Pilot 2",
+          "Cabin Crew 1",
+          "Cabin Crew 2",
+        ];
         return {
-          name: `SW Airplane ${i + 1}`,
-          type: aircraftTypes[Math.floor(Math.random() * aircraftTypes.length)],
-          availability: Math.random() > 0.5 ? "Available" : "Unavailable",
-          destination: states[Math.floor(Math.random() * states.length)],
+          airplane: {
+            name: `SW Airplane ${i + 1}`,
+            type: aircraftTypes[
+              Math.floor(Math.random() * aircraftTypes.length)
+            ],
+            availability: Math.random() > 0.5 ? "Available" : "Unavailable",
+            destination: states[Math.floor(Math.random() * states.length)],
+          },
+          crew: crewMembers.join(", "),
         };
       }),
     };
   },
   computed: {
-    filteredAirplanes() {
-      return this.airplanes.filter(airplane => {
-        const matchesType = this.typeFilter === '' || airplane.type.includes(this.typeFilter);
-        const matchesAvailability = this.availabilityFilter === '' || airplane.availability.includes(this.availabilityFilter);
-        const matchesDestination = this.destinationFilter === '' || airplane.destination.includes(this.destinationFilter);
+    filteredFlights() {
+      return this.flights.filter((flight) => {
+        const matchesType =
+          this.typeFilter === "" ||
+          flight.airplane.type.includes(this.typeFilter);
+        const matchesAvailability =
+          this.availabilityFilter === "" ||
+          flight.airplane.availability.includes(this.availabilityFilter);
+        const matchesDestination =
+          this.destinationFilter === "" ||
+          flight.airplane.destination.includes(this.destinationFilter);
         return matchesAvailability && matchesDestination;
       });
     },
   },
   methods: {
     sendData() {
-     
-      // alert('Send data functionality goes here.');
       this.showOriginalImage = !this.showOriginalImage; // Toggle the image when 'Send' is clicked
-
-    }
-  }
+      this.flightsAssigned = true;
+    },
+  },
 };
 </script>
 
-
 <style scoped>
+.title {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
 .wrapper {
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
   align-items: left;
   height: 70vh;
   width: 70vw;
@@ -127,31 +186,36 @@ export default {
 .content {
   flex: 1;
   display: flex;
-  justify-content: space-around; /* Adjusted for space between chart and table */
   padding: 0 20px;
 }
 
-.chart, .data-section {
-  width: 100%; /* Adjust width as needed */
+.chart {
+  flex: 1;
+}
+
+.data-section {
+  flex: 1;
 }
 
 .chart img {
   width: 100%;
-  max-width: 800px; 
-  
+  max-width: 800px;
 }
 
 .table-container {
-  max-height: 60vh; /* Adjust based on your needs */
+  max-height: 60vh;
   overflow-y: auto;
+  overflow-x: auto;
 }
 
 table {
   width: 100%;
+  margin-left: 10px;
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   border: 1px solid black;
   padding: 8px;
   text-align: left;
@@ -159,5 +223,25 @@ th, td {
 
 .search {
   margin-bottom: 20px;
+  text-align: center;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content {
+  text-align: center;
+}
+
+.popup button {
+  margin-top: 10px;
 }
 </style>
