@@ -1,8 +1,7 @@
 <template>
-    <div>
-        
-        <div class="login-wrapper">
-            <div class="login-container ">
+    <div class="full-screen-container">
+        <div class="card-container">
+            <div class="login-section">
                 <form @submit.prevent="login">
                     <h2>Login</h2>
                     <div class="input-group">
@@ -16,6 +15,10 @@
                     <button type="submit">Login</button>
                 </form>
             </div>
+            <div class="text-section">
+                <h2>Welcome to Southwest Airlines Operations Crew Scheduling System</h2>
+                <p>Enter your login details to start accessing.</p>
+            </div>
         </div>
     </div>
 </template>
@@ -28,7 +31,7 @@ export default {
                 username: '',
                 password: ''
             }
-        }
+        };
     },
     methods: {
         login() {
@@ -41,57 +44,57 @@ export default {
             }
         }
     }
-}
+};
 </script>
 
-
-
-
-
-<!-- styling for the login page -->
 <style scoped>
-.login-wrapper {
+.full-screen-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: 100vh;
     width: 70vw;
+    /* background-color: #f9f9f9; */
 }
 
-
-.login-container {
-    max-width: 300px;
-    margin: auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.card-container {
+    display: flex;
+    width: 900px;
+    /* Or desired width */
+    height: 500px;
+    /* Or desired height */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
 }
 
-h2 {
-    text-align: center;
+.login-section,
+.text-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
 }
 
-.input-group {
-    margin-bottom: 20px;
+.login-section {
+    background-color: #fff;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+.text-section {
+    background-color: #3f51b5;
+    color: white;
 }
 
-input[type="text"],
-input[type="password"] {
+.input-group input {
     width: 100%;
     padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    box-sizing: border-box;
 }
 
 button {
-    width: 100%;
     padding: 10px;
     border: none;
     border-radius: 4px;
@@ -102,17 +105,5 @@ button {
 
 button:hover {
     background-color: #3f51b5;
-}
-
-a {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-    color: #3f51b5;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 </style>
