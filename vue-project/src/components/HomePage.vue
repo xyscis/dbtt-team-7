@@ -3,12 +3,14 @@ import WelcomeItem from './WelcomeItem.vue'
 import DocumentationIcon from './icons/IconDocumentation.vue'
 import ToolingIcon from './icons/IconTooling.vue'
 import CommunityIcon from './icons/IconCommunity.vue'
+import NavBar from './NavBar.vue'
 </script>
 
 
   
 
 <template>
+  <NavBar></NavBar>
   <div id="app" class="container border border-4 rounded-3 bg-white bg-gradient bg-opacity-75 p-5">
   <div>
     <img alt="Vue logo" class="logo" src="../assets/home.png" width="400px" height="400px" />

@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
+    <nav class="navbar navbar-expand-lg py-3 navbar-white bg-white border rounded-2 border-2 shadow-sm">
       <div class="container">
         <a href="#" class="navbar-brand">
             <img src="../assets/Southwest-Airlines-Logo.png" width="100" alt="" class="d-inline-block align-middle mr-2">
@@ -22,7 +22,7 @@
             <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Flight Reassignment' }" @click="handleFlightReassignment">Flight Reassignment</li>
             <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Passenger Reassignment' }" @click="handlePassengerReassignment">Passenger Reassignment</li>
             <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Live Chat' }" @click="handleLiveChat">Live Chat</li>
-            <li class="nav-item btn btn-danger ml-3 nav-link" @click="handleLogin">Login</li>
+            <li class="nav-item btn btn-danger ml-3 nav-link" @click="handleLogin">Logout</li>
           </ul>
         </div>
       </div>
@@ -88,7 +88,7 @@
   
   <style scoped>
   .nav-link.aria-current {
-    background-color: #f5f5f5;
+    background-color: #f5f5f5; 
     border-bottom: 2px solid #000;
   }
   .nav-item {
