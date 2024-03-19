@@ -1,7 +1,8 @@
 <!-- References: https://medium.com/@alen.ajam/building-a-simple-chat-app-with-vue-js-462c4a53c6ad -->
 
 <template>
-    <div class="app-container">
+    <NavBar></NavBar>
+    <div class="app-container border border-dark bg-white bg-opacity-75">
         <div class="sidebar">
             <div class="search-box">
                 <input type="text" placeholder="Search" />
@@ -30,6 +31,10 @@
         </div>
     </div>
 </template>
+
+<script setup>
+    import NavBar from './NavBar.vue';
+</script>
 
 <script>
 export default {
@@ -87,7 +92,7 @@ export default {
     display: flex;
     height: 80vh;
     width: 80vw;
-    border-style:solid;
+    
 }
 
 .sidebar {

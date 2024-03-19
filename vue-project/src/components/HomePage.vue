@@ -3,43 +3,48 @@ import WelcomeItem from './WelcomeItem.vue'
 import DocumentationIcon from './icons/IconDocumentation.vue'
 import ToolingIcon from './icons/IconTooling.vue'
 import CommunityIcon from './icons/IconCommunity.vue'
+import NavBar from './NavBar.vue'
 </script>
 
 
   
 
 <template>
+  <NavBar></NavBar>
+  <div id="app" class="container border border-4 rounded-3 bg-white bg-gradient bg-opacity-75 p-5">
   <div>
+    <br><br>
     <img alt="Vue logo" class="logo" src="../assets/home.png" width="400px" height="400px" />
   </div>
   <div >
 
     <WelcomeItem  >
+      <br>
     <template #icon>
       <DocumentationIcon />
     </template>
-    <router-link to="/flightreassignment" type="button" class="btn btn-outline-light">
-      <div class="text-dark text-start"><h3>Flight Reassignment</h3></div>
+    <div>
+      <div class=" text-start"><h3>Flight Reassignment</h3></div>
     
 
-    <p class="text-start text-dark">Allows you to reassign planes and crews in response to flight cancellations or disruptions</p>
-  </router-link>
+    <p class="text-start">Allows you to reassign planes and crews in response to flight cancellations or disruptions</p>
+    </div>
   </WelcomeItem>
 
   
   <WelcomeItem>
-    
+    <br><br>
       <template #icon>
         <ToolingIcon />
       </template>
-      <router-link to="/passengermanagement" type="button" class="btn btn-outline-light">
-        <div class="text-dark text-start"><h3>Passenger Management</h3></div>
+      <div>
+        <div class=" text-start"><h3>Passenger Management</h3></div>
     
 
-      <p class="text-start text-dark">Allows you to manage passenger information to provide assistance to affected customers during flight disruptions</p>
+      <p class="text-start">Allows you to manage passenger information to provide assistance to affected customers during flight disruptions</p>
 
       <br />
-      </router-link>
+      </div>
     
   </WelcomeItem>
 
@@ -47,17 +52,19 @@ import CommunityIcon from './icons/IconCommunity.vue'
   
 
   <WelcomeItem>
+    <br>
     <template #icon>
       <CommunityIcon />
     </template>
-    <router-link to="/livechat" type="button" class="btn btn-outline-light">
-      <div class="text-dark text-start"><h3>Live Chat</h3></div>
+    <div>
+      <div class=" text-start"><h3>Live Chat</h3></div>
     
 
-    <p class="text-start text-dark">Allows you to interact with the customers to know their details to help you in rescheduling their flight efficiently</p>
-    </router-link>
+    <p class="text-start">Allows you to interact with the customers to know their details to help you in rescheduling their flight efficiently</p>
+    </div>
   </WelcomeItem>
   </div>
+</div>
 
 
   
@@ -89,7 +96,18 @@ header {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+    
   }
+  #app {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.img {
+  background-image: url('../assets/94999.png');
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
 }
 
 

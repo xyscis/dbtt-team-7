@@ -1,7 +1,8 @@
 <template>
+  <NavBar></NavBar>
   <div>
     <div class="wrapper">
-      <div class="container">
+      <div class="container border border-4 rounded-3 bg-white bg-gradient p-5"> 
 
         <div class="row content">
           <div class="row">
@@ -18,7 +19,7 @@
             </div>
             <div class="col chart">
               <div class="title">
-                Forcast data
+                Forecast data
               </div>
               <img
                 src="../assets/regression model.PNG"
@@ -85,6 +86,10 @@
     </div>
   </div>
 </template>
+
+<script setup>
+  import NavBar from './NavBar.vue';
+</script>
 
 <script>
 export default {
@@ -203,9 +208,10 @@ export default {
 }
 
 .table-container {
-  max-height: 60vh;
+  max-height: 50vh;
   overflow-y: auto;
   overflow-x: auto;
+  
 }
 
 table {

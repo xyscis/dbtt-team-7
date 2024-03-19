@@ -1,15 +1,20 @@
 <template>
-    <div>
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" v-model="flightNumber" placeholder="Flight Number" aria-label="Flight Number" aria-describedby="button-addon2">
-      <button class="btn btn-outline-secondary" type="button" @click="displayFlight">Button</button>
-    </div>
-    <div class="container">
-      <button type="button" class="outputFlight btn btn-primary" v-if="outputButtonVisible" data-bs-toggle="modal" data-bs-target="#flightdetails">{{ flightNumber }}</button>
-      <!-- <router-link to="/flightrebooking" type="button" class="outputFlight btn btn-primary" v-if="outputButtonVisible" >{{ flightNumber }}</router-link>-->
-     <!-- <router-link :to="{ name: 'FlightRebooking', params: { flightNumber: flightNumber }}" type="button" class="outputFlight btn btn-primary" v-if="outputButtonVisible">{{ flightNumber }}</router-link> -->
-
-    </div>
+    <NavBar></NavBar>
+    <div class="container-fluid" style="width: 1000px; margin-top: 1px;">
+            <div class="col-2 col-sm-4 col-md-6 col-lg-12">
+                <div class="input-group mb-4">
+                    <input type="text" class="form-control" v-model="flightNumber" placeholder="Flight Number" aria-label="Flight Number" aria-describedby="button-addon2" style="width: 90%">
+                    <button class="btn btn-primary" type="button" @click="displayFlight" :disabled="isFlightNumberEmpty">Search</button>
+                </div>
+            
+        </div>
+    
+        <div class="container border rounded-pill p-5 d-flex justify-content-center" v-if="outputButtonVisible">
+            <button type="button" class="button border border-2 outputFlight btn btn-light fs-3 d-flex justify-content-between align-items-center" style="width: 80%" data-bs-toggle="modal" data-bs-target="#flightdetails">
+                <span class="text-start ms-5 me-auto">Flight {{ flightNumber }}</span>
+                <img src="../assets/94999.png" class="img" style="width: 300px;">
+            </button>
+            </div>
 
     <!-- Popup Modal -->
     <div class="modal fade modal-xl" id="flightdetails"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -26,17 +31,19 @@
                     <h4>Arrival Time: 10.00 a.m.</h4>
 
                     <h3>Passenger List</h3>
+                    <div class="border "></div>
+                    <br>
                     <div class="btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-outline-primary">
+                        <label class="btn btn-outline-primary p-2">
                             <input type="checkbox" autocomplete="off"> John
                         </label> <br> 
-                        <label class="btn btn-outline-primary">
+                        <label class="btn btn-outline-primary p-2">
                             <input type="checkbox" autocomplete="off"> Tim
                         </label> <br>
-                        <label class="btn btn-outline-primary">
+                        <label class="btn btn-outline-primary p-2">
                             <input type="checkbox" autocomplete="off"> Tam
                         </label> <br>
-                        <label class="btn btn-outline-primary">
+                        <label class="btn btn-outline-primary p-2">
                             <input type="checkbox" autocomplete="off"> Joe
                         </label> <br>
                     </div>
@@ -104,9 +111,11 @@
     
   </div>
 </template>
+<script setup>
+import NavBar from './NavBar.vue';
+</script>
 
-
-<script>
+<script scoped>
 
 
 export default {
@@ -122,6 +131,12 @@ export default {
       this.outputButtonVisible = false;
     }
   },
+  computed: {
+    isFlightNumberEmpty() {
+      return this.flightNumber.trim() === '';
+    }
+  },
+  
   methods: {
     displayFlight() {
       this.outputButtonVisible = true;
@@ -136,6 +151,26 @@ export default {
 .btn-group-toggle .btn {
   width: 90%;
   text-align: left;
+}
+.full-screen-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 70vw;
+    /* background-color: #f9f9f9; */
+}
+.button {
+  width: 80px;
+  height: 90px;
+  padding: 0;
+  
+}
+
+.img {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
 }
 </style>
 
