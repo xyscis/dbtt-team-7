@@ -1,4 +1,5 @@
 <template>
+  <NavBar></NavBar>
   <div>
     <div class="wrapper">
       <div class="container border border-4 rounded-3 bg-white bg-gradient p-5"> 
@@ -85,6 +86,10 @@
     </div>
   </div>
 </template>
+
+<script setup>
+  import NavBar from './NavBar.vue';
+</script>
 
 <script>
 export default {

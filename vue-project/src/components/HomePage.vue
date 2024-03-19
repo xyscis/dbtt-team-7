@@ -13,36 +13,38 @@ import NavBar from './NavBar.vue'
   <NavBar></NavBar>
   <div id="app" class="container border border-4 rounded-3 bg-white bg-gradient bg-opacity-75 p-5">
   <div>
+    <br><br>
     <img alt="Vue logo" class="logo" src="../assets/home.png" width="400px" height="400px" />
   </div>
   <div >
 
     <WelcomeItem  >
+      <br>
     <template #icon>
       <DocumentationIcon />
     </template>
-    <router-link to="/flightreassignment" type="button" class="btn btn-outline-dark">
+    <div>
       <div class=" text-start"><h3>Flight Reassignment</h3></div>
     
 
     <p class="text-start">Allows you to reassign planes and crews in response to flight cancellations or disruptions</p>
-  </router-link>
+    </div>
   </WelcomeItem>
 
   
   <WelcomeItem>
-    
+    <br><br>
       <template #icon>
         <ToolingIcon />
       </template>
-      <router-link to="/passengermanagement" type="button" class="btn btn-outline-dark">
+      <div>
         <div class=" text-start"><h3>Passenger Management</h3></div>
     
 
       <p class="text-start">Allows you to manage passenger information to provide assistance to affected customers during flight disruptions</p>
 
       <br />
-      </router-link>
+      </div>
     
   </WelcomeItem>
 
@@ -50,15 +52,16 @@ import NavBar from './NavBar.vue'
   
 
   <WelcomeItem>
+    <br>
     <template #icon>
       <CommunityIcon />
     </template>
-    <router-link to="/livechat" type="button" class="btn btn-outline-dark">
+    <div>
       <div class=" text-start"><h3>Live Chat</h3></div>
     
 
     <p class="text-start">Allows you to interact with the customers to know their details to help you in rescheduling their flight efficiently</p>
-    </router-link>
+    </div>
   </WelcomeItem>
   </div>
 </div>

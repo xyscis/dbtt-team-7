@@ -1,9 +1,9 @@
 <template>
-    <nav class="navbar navbar-expand-lg py-3 navbar-white bg-white border rounded-2 border-2 shadow-sm">
+    <nav class="navbar navbar-expand-lg py-3 navbar-white bg-white border rounded-2 border-2 shadow-sm fixed-top">
       <div class="container">
-        <a href="#" class="navbar-brand">
-            <img src="../assets/Southwest-Airlines-Logo.png" width="100" alt="" class="d-inline-block align-middle mr-2">
-      </a>
+        <router-link to="/home" class="navbar-brand">
+          <img src="../assets/Southwest-Airlines-Logo.png" width="100" alt="" class="d-inline-block align-middle mr-2">
+        </router-link>
   
         <button
           type="button"
@@ -22,7 +22,7 @@
             <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Flight Reassignment' }" @click="handleFlightReassignment">Flight Reassignment</li>
             <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Passenger Reassignment' }" @click="handlePassengerReassignment">Passenger Reassignment</li>
             <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Live Chat' }" @click="handleLiveChat">Live Chat</li>
-            <li class="nav-item btn btn-danger ml-3 nav-link" @click="handleLogin">Logout</li>
+            <li class="nav-item btn btn-danger ml-3 nav-link navbar-btn" @click="handleLogin">Logout</li>
           </ul>
         </div>
       </div>
@@ -36,6 +36,7 @@
   // import getUser from '../composables/getUser';
   
   export default {
+    name: 'NavBar',
     setup() {
       // const { logout, error } = useLogout();
       // const { user } = getUser();
@@ -44,23 +45,23 @@
       const isBootstrapLoaded = ref(false);
   
       const handleFlightReassignment = () => {
-        router.push({ name: 'Flight Reassignment' });
+        router.push('/flightreassignment');
         activeButton.value = 'Flight Reassignment';
       };
   
       const handlePassengerReassignment = () => {
-        router.push({ name: 'Passenger Reassignment' });
+        router.push('/passengermanagement');
         activeButton.value = 'Passenger Reassignment';
       };
   
       const handleLiveChat = () => {
-        router.push({ name: 'Live Chat' });
+        router.push('/livechat');
         activeButton.value = 'Live Chat';
       };
   
       const handleLogin = async () => {
         // Implement your login logic here
-        console.log('Handle login logic here');
+        router.push('/')
       };
   
       onMounted(() => {
@@ -96,8 +97,14 @@
   }
   
   .navbar-btn-hover:hover, .navbar-btn-active {
-    background-color: #6CCFA4;
-    color: goldenrod;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+  }
+  .navbar-btn:hover {
+    background-color: #ffffff;
+    color: red;
+    font-weight: bold;
   }
   
   .navbar-nav {
@@ -108,5 +115,8 @@
   .navbar-nav .nav-item {
     flex: 1;
     text-align: center;
+  }
+  .navbar-brand:hover {
+    background-color: transparent; /* Change to the desired background color or none */
   }
   </style>

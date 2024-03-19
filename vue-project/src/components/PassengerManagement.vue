@@ -1,4 +1,5 @@
 <template>
+    <NavBar></NavBar>
     <div class="container-fluid" style="width: 1000px; margin-top: 1px;">
             <div class="col-2 col-sm-4 col-md-6 col-lg-12">
                 <div class="input-group mb-4">
@@ -110,9 +111,11 @@
     
   </div>
 </template>
+<script setup>
+import NavBar from './NavBar.vue';
+</script>
 
-
-<script>
+<script scoped>
 
 
 export default {
