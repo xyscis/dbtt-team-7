@@ -18,7 +18,7 @@
             </div>
             <div class="col chart">
               <div class="title">
-                Forcast data
+                Forecast data
               </div>
               <img
                 src="../assets/regression model.PNG"
