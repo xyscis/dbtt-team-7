@@ -107,6 +107,7 @@
     font-weight: bold;
   }
   
+  
   .navbar-nav {
     width: 100%;
     display: flex;
