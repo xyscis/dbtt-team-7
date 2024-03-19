@@ -22,7 +22,7 @@
             <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Flight Reassignment' }" @click="handleFlightReassignment">Flight Reassignment</li>
             <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Passenger Reassignment' }" @click="handlePassengerReassignment">Passenger Reassignment</li>
             <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Live Chat' }" @click="handleLiveChat">Live Chat</li>
-            <li class="nav-item btn btn-danger ml-3 nav-link navbar-btn" @click="handleLogin">Logout</li>
+            <li class="nav-item btn ml-3 nav-link navbar-btn" @click="handleLogin">Logout</li>
           </ul>
         </div>
       </div>
@@ -106,6 +106,7 @@
     color: red;
     font-weight: bold;
   }
+  
   
   .navbar-nav {
     width: 100%;
