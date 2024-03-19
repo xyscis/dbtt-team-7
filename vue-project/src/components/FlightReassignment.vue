@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="wrapper">
-      <div class="container">
+      <div class="container border border-4 rounded-3 bg-white bg-gradient p-5"> 
 
         <div class="row content">
           <div class="row">
@@ -203,9 +203,10 @@ export default {
 }
 
 .table-container {
-  max-height: 60vh;
+  max-height: 50vh;
   overflow-y: auto;
   overflow-x: auto;
+  
 }
 
 table {
