@@ -2,7 +2,6 @@
   <div>
     <div class="wrapper">
       <div class="container">
-
         <div class="row content">
           <div class="row">
             <div class="col chart">
@@ -16,58 +15,114 @@
               />
               <img v-else src="../assets/barchart2.PNG" alt="New Bar Chart" />
             </div>
-            <div class="col chart">
-              <div class="title">
-                Forcast data
-              </div>
+            <!-- <div class="col chart">
+              <div class="title">Forcast data</div>
               <img
                 src="../assets/regression model.PNG"
                 alt="Original Bar Chart"
               />
-            </div>
+            </div> -->
           </div>
 
           <div class="row">
             <div class="data-section">
               <div class="search">
-                <select v-model="availabilityFilter">
-                  <option value="">All Availabilities</option>
-                  <option value="Available">Available</option>
-                  <option value="Unavailable">Unavailable</option>
-                </select>
-                <select v-model="destinationFilter">
-                  <option value="">All Destinations</option>
-                  <option value="Florida">Florida</option>
-                  <option value="Arizona">Arizona</option>
-                  <option value="Texas">Texas</option>
-                  <option value="Washington">Washington</option>
-                  <option value="Illinois">Illinois</option>
-                  <option value="Nevada">Nevada</option>
-                  <option value="Colorado">Colorado</option>
-                  <option value="California">California</option>
-                  <option value="New York">New York</option>
-                  <option value="Georgia">Georgia</option>
-                </select>
-                <button v-on:click="sendData">Send</button>
+                <button v-on:click="scheduleFlight">Schedule</button>
               </div>
               <div class="table-container">
-                <table>
+                <table border="1">
                   <thead>
                     <tr>
-                      <th>Airplane</th>
-                      <th>Type</th>
-                      <th>Availability</th>
+                      <th>Flight Number</th>
+                      <th>Origin</th>
                       <th>Destination</th>
-                      <th>Crew</th>
+                      <th>Date</th>
+                      <th>Scheduled Departure</th>
+                      <th>Departure</th>
+                      <th>Scheduled Arrival</th>
+                      <th>Arrival</th>
+                      <th>Flight Status</th>
+                      <th>Aircraft Type</th>
+                      <th>Crew ID (Cabin Crew)</th>
+                      <th>Distance (miles)</th>
+                      <th>Scheduled Departure Date</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(flight, index) in filteredFlights" :key="index">
-                      <td>{{ flight.airplane.name }}</td>
-                      <td>{{ flight.airplane.type }}</td>
-                      <td>{{ flight.airplane.availability }}</td>
-                      <td>{{ flight.airplane.destination }}</td>
-                      <td>{{ flight.crew }}</td>
+                    <tr>
+                      <td>SW1009</td>
+                      <td>SEA</td>
+                      <td>DEN</td>
+                      <td>2024-07-01</td>
+                      <td>2024-07-04</td>
+                      <td>09:15:00</td>
+                      <td>2024-07-07</td>
+                      <td>09:00</td>
+                      <td>Delayed</td>
+                      <td>Boeing 737-700</td>
+                      <td>FA209, FA309</td>
+                      <td>1022</td>
+                      <td>2024-07-04</td>
+                    </tr>
+                    <tr>
+                      <td>SW1010</td>
+                      <td>GEG</td>
+                      <td>MDW</td>
+                      <td>2024-09-01</td>
+                      <td>2024-09-02</td>
+                      <td>09:15:00</td>
+                      <td>2024-09-05</td>
+                      <td>09:00</td>
+                      <td>Cancelled</td>
+                      <td>Boeing 737 MAX 8</td>
+                      <td>FA210, FA310</td>
+                      <td>1507</td>
+                      <td>2024-09-02</td>
+                    </tr>
+                    <tr>
+                      <td>SW1011</td>
+                      <td>ATL</td>
+                      <td>SFO</td>
+                      <td>2024-05-25</td>
+                      <td>2024-05-27</td>
+                      <td>09:15:00</td>
+                      <td>2024-05-30</td>
+                      <td>09:00</td>
+                      <td>Cancelled</td>
+                      <td>Boeing 737 MAX 7</td>
+                      <td>FA211, FA311</td>
+                      <td>2134</td>
+                      <td>2024-05-27</td>
+                    </tr>
+                    <tr>
+                      <td>SW1012</td>
+                      <td>AUS</td>
+                      <td>GEG</td>
+                      <td>2024-02-17</td>
+                      <td>2024-02-19</td>
+                      <td>09:15:00</td>
+                      <td>2024-02-22</td>
+                      <td>09:00</td>
+                      <td>Delayed</td>
+                      <td>Boeing 737-800</td>
+                      <td>FA212, FA312</td>
+                      <td>1600</td>
+                      <td>2024-02-19</td>
+                    </tr>
+                    <tr>
+                      <td>SW1013</td>
+                      <td>JFK</td>
+                      <td>TPA</td>
+                      <td>2024-11-26</td>
+                      <td>2024-11-28</td>
+                      <td>09:15:00</td>
+                      <td>2024-11-30</td>
+                      <td>09:00</td>
+                      <td>Delayed</td>
+                      <td>Boeing 737-800</td>
+                      <td>FA213, FA313</td>
+                      <td>1006</td>
+                      <td>2024-11-28</td>
                     </tr>
                   </tbody>
                 </table>
@@ -80,79 +135,122 @@
   </div>
   <div v-if="flightsAssigned" class="popup">
     <div class="popup-content">
-      <p>Flights have been assigned successfully!</p>
-      <button @click="flightsAssigned = false">Close</button>
+      <h4>Available Flights</h4>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Select</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Departure</th>
+            <th>Aircraft Availability</th>
+            <th>Crew Availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input type="checkbox" v-model="selectedFlights['SEA-DEN']" />
+            </td>
+            <td>SEA</td>
+            <td>DEN</td>
+            <td>09:20:00</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" v-model="selectedFlights['GEG-MDW']" />
+            </td>
+            <td>GEG</td>
+            <td>MDW</td>
+            <td>09:20:00</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" v-model="selectedFlights['ATL-SFO']" />
+            </td>
+            <td>ATL</td>
+            <td>SFO</td>
+            <td>09:20:00</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" v-model="selectedFlights['AUS-GEG']" />
+            </td>
+            <td>AUS</td>
+            <td>GEG</td>
+            <td>09:20:00</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" v-model="selectedFlights['JFK-TPA']" />
+            </td>
+            <td>JFK</td>
+            <td>TPA</td>
+            <td>09:20:00</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+      <button @click="closePopup">Send</button>
     </div>
+    
   </div>
+  <div v-if="flightsScheduled" class="popup">
+  <div class="popup-content">
+    <p>Flights have been successfully assigned !</p>
+    <button  @click="closeMsg">Close</button>
+  </div>
+</div>
+  
 </template>
+
 
 <script>
 export default {
   data() {
     return {
-      searchQuery: "",
-      availabilityFilter: "",
-      typeFilter: "",
-      destinationFilter: "",
       showOriginalImage: true,
-      flights: Array.from({ length: 1000 }, (_, i) => {
-        const states = [
-          "Florida",
-          "Arizona",
-          "Texas",
-          "Washington",
-          "Illinois",
-          "Nevada",
-          "Colorado",
-          "California",
-          "New York",
-          "Georgia",
-        ];
-        const aircraftTypes = [
-          "Boeing 737-800",
-          "Boeing 737 MAX 8",
-          "Boeing 737-700",
-        ];
-        const crewMembers = [
-          "Pilot 1",
-          "Pilot 2",
-          "Cabin Crew 1",
-          "Cabin Crew 2",
-        ];
-        return {
-          airplane: {
-            name: `SW Airplane ${i + 1}`,
-            type: aircraftTypes[
-              Math.floor(Math.random() * aircraftTypes.length)
-            ],
-            availability: Math.random() > 0.5 ? "Available" : "Unavailable",
-            destination: states[Math.floor(Math.random() * states.length)],
-          },
-          crew: crewMembers.join(", "),
-        };
-      }),
+      flightsAssigned: false,
+      selectedFlights: {},
+      flightsScheduled: false,
+    
+
     };
   },
-  computed: {
-    filteredFlights() {
-      return this.flights.filter((flight) => {
-        const matchesType =
-          this.typeFilter === "" ||
-          flight.airplane.type.includes(this.typeFilter);
-        const matchesAvailability =
-          this.availabilityFilter === "" ||
-          flight.airplane.availability.includes(this.availabilityFilter);
-        const matchesDestination =
-          this.destinationFilter === "" ||
-          flight.airplane.destination.includes(this.destinationFilter);
-        return matchesAvailability && matchesDestination;
-      });
-    },
-  },
+
   methods: {
-    sendData() {
-      this.showOriginalImage = !this.showOriginalImage; // Toggle the image when 'Send' is clicked
+    closePopup() {
+      const hasSelectedFlights = Object.values(this.selectedFlights).some(selected => selected);
+      if (hasSelectedFlights) {
+        this.flightsAssigned = false; 
+        this.flightsScheduled = true; 
+        this.showOriginalImage = !this.showOriginalImage; 
+    
+      } else {
+        alert('Please select at least one flight to schedule.'); // Simple validation feedback.
+      }
+    },
+    closeMsg(){
+
+      this.flightsScheduled= false;
+    },
+    scheduleFlight(){
       this.flightsAssigned = true;
+    },
+    sendData() {
+      
+      this.flightsScheduled = true;
+      
+      
     },
   },
 };
@@ -203,13 +301,13 @@ export default {
 }
 
 .table-container {
-  max-height: 60vh;
+  max-height: 80vh;
   overflow-y: auto;
   overflow-x: auto;
 }
 
 table {
-  width: 100%;
+  width: auto;
   margin-left: 10px;
   border-collapse: collapse;
 }
