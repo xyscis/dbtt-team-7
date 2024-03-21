@@ -16,8 +16,11 @@
                 </form>
             </div>
             <div class="text-section">
-                <h2>Welcome to Southwest Airlines Operations Crew Scheduling System</h2>
-                <p>Enter your login details to start accessing.</p>
+                <div class="border rounded-3 border-2 border-light p-2 bg-opacity-75 bg-white">
+                    <h2>Welcome to Southwest Airlines Operations Crew Scheduling System</h2>
+                    <p>Enter your login details to start accessing.</p>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -82,8 +85,13 @@ export default {
 }
 
 .text-section {
-    background-color: #3f51b5;
-    color: white;
+    /* background-color: #3f51b5;
+    color: white; */
+    background-image: url('../assets/94999.png');
+    overflow: hidden;
+    width: 50%;
+    height: 100%;
+    background-size: contain;
 }
 
 .input-group input {
@@ -105,5 +113,10 @@ button {
 
 button:hover {
     background-color: #3f51b5;
+}
+.img {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
 }
 </style>
