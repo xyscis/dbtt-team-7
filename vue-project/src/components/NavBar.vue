@@ -50,7 +50,7 @@
       };
   
       const handlePassengerReassignment = () => {
-        router.push('/passengermanagement');
+        router.push('/passengerreassignment');
         activeButton.value = 'Passenger Reassignment';
       };
   
