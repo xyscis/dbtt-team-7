@@ -2,6 +2,8 @@
 
 <template>
     <NavBar></NavBar>
+    <br>
+    <br>
     <div class="app-container border border-dark bg-white bg-opacity-75">
         <div class="sidebar">
             <div class="search-box">
