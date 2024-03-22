@@ -1,8 +1,12 @@
+<script setup>
+
+import NavBar from "./NavBar.vue";
+</script>
 <template>
+  <NavBar></NavBar>
+  <div class="container-fluid mt-5 bg-white ">
   
-  <div class="container-fluid">
-  
-    <div class="row">
+    <div class="row mt-5">
       <h1 style="text-align: center;">Flights that Need Reassignment</h1>
       <table border="1">
         <thead>
@@ -17,22 +21,20 @@
           <tr>
             <td>
               SW1009
-             
             </td>
             <td>FA209, FA309</td>
             <td>SW0098</td>
             <td>FA511, FA854</td>
-            <td> <input type="checkbox" v-model="selectedFlights['SEA-DEN']" /></td>
+
           </tr>
           <tr>
             <td>
               SW1010
-              
             </td>
             <td>FA210, FA310</td>
             <td>SW0001</td>
             <td>FA124, FA321</td>
-            <td><input type="checkbox" v-model="selectedFlights['GEG-MDW']" /></td>
+
           </tr>
           <tr>
             <td>
@@ -42,7 +44,7 @@
             <td>FA211, FA311</td>
             <td>SW0078</td>
             <td>FA101, FA200</td>
-            <td><input type="checkbox" v-model="selectedFlights['ATL-SFO']" /></td>
+
           </tr>
           <tr>
             <td>
@@ -52,7 +54,6 @@
             <td>FA212, FA312</td>
             <td>SW1600</td>
             <td>FA184, FA345</td>
-            <td><input type="checkbox" v-model="selectedFlights['AUS-GEG']" /></td>
           </tr>
           <tr>
             <td>
@@ -61,15 +62,22 @@
             <td>FA213, FA313</td>
             <td>SW3524</td>
             <td>FA211, FA223</td>
-            <td><input type="checkbox" v-model="selectedFlights['JFK-TPA']" /></td>
           </tr>
         </tbody>
       </table>
     </div>
+    <div class="row justify-content-center mt-5">
+    <div class="col-auto">
+        <button @click="sendData" class="btn btn-danger">Send</button>
+    </div>
+</div>
+
+
+  
   </div>
 
-  <button @click="sendData">Send</button>
-  <div v-if="showMessage" class="popup">
+  
+  <div v-if="showMessage" class="popup text-center">
       <div v-html="popupMessage"></div>
     <button @click="closeMessagePopup">Close</button>
   </div>
@@ -92,35 +100,10 @@ export default {
   },
 
   methods: {
-    sendData() {
-      const flights = [
-        { key: 'SEA-DEN', flightNum: 'SW1009', crew: 'FA209, FA309' },
-        { key: 'GEG-MDW', flightNum: 'SW1010', crew: 'FA210, FA310' },
-        { key: 'ATL-SFO', flightNum: 'SW1011', crew: 'FA211, FA311' },
-        { key: 'AUS-GEG', flightNum: 'SW1012', crew: 'FA212, FA312' },
-        { key: 'JFK-TPA', flightNum: 'SW1013', crew: 'FA213, FA313' }
-      ];
-
-      const selectedFlights = flights.filter(flight => this.selectedFlights[flight.key]);
-
-      if (selectedFlights.length > 1) {
-    // Construct a message for multiple flights using HTML list for better formatting
-    this.popupMessage = "The following flights and crews have been successfully assigned:<ul>" +
-                    selectedFlights.map(flight => `<li>Flight number ${flight.flightNum} with crew ${flight.crew}</li>`).join('') +
-                    "</ul>";
-
-  } else if (selectedFlights.length === 1) {
-    // Construct a message for a single flight
-    const flight = selectedFlights[0];
-    this.popupMessage = `Flight number ${flight.flightNum} with crew ${flight.crew} has been newly assigned.`;
-  } else {
-    // No flights selected
-    this.popupMessage = "Please select at least one flight to schedule." // Simple validation feedback
-    return; 
-  }
-
-
+    sendData(){
+      this.popupMessage = "The flights and crews have been successfully assigned!"
       this.showMessage = true; 
+
     },
 
 
@@ -137,7 +120,7 @@ export default {
 <style scoped>
 .title {
   text-align: center;
-  font-size: 24px; /* Slightly larger title font */
+  font-size: 24px; 
   margin-bottom: 30px;
 }
 
@@ -153,13 +136,13 @@ table {
   background: white;
   border-collapse: collapse; /* Remove gaps between table cells */
   margin-top: 20px; /* Space between title and table */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for the table */
+
 }
 
 th, td {
   border: 1px solid #ddd; /* Lighter border color */
   padding: 12px 15px; /* More padding for table cells */
-  text-align: left; /* Align text to the left */
+  text-align: center; /* Align text to the left */
   font-size: 18px; /* Slightly larger font-size for better readability */
 }
 th {
@@ -172,14 +155,11 @@ tr:nth-child(even) {
 }
 
 button {
-  background-color: #007bff; /* Bootstrap primary color */
-  color: white;
+
   border: none;
   padding: 10px 20px;
-  cursor: pointer;
   border-radius: 5px; /* Rounded corners for buttons */
   font-size: 18px; /* Larger font-size for better readability */
-  transition: background-color 0.3s ease; /* Smooth transition for mouse hover */
 }
 
 
@@ -202,21 +182,17 @@ input[type="checkbox"] {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
   max-width: 600px; /* Maximum width to avoid overly wide pop-ups */
   width: 90%; /* Ensure it doesn't stretch too far on smaller screens */
+  font-size: 20px;
   
 }
 
-.popup-content {
-  text-align: center;
-  font-size: 20px; /* Larger font size for better readability */
-  /* color: #333; Darker text for better contrast */
-}
 
 .popup button {
   background-color: #007bff; /* Primary button color */
   color: white; /* Text color */
-  border: none;
-  padding: 12px 24px; /* Larger padding for bigger buttons */
-  cursor: pointer;
+
+  padding: 12px 24px; 
+
   border-radius: 5px; /* Rounded button corners */
   font-size: 18px; /* Larger button text */
   margin-top: 20px; /* Space above the button */
