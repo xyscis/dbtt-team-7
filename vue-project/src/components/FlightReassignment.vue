@@ -4,11 +4,15 @@ import NavBar from "./NavBar.vue";
 <template>
   <NavBar></NavBar>
   <div class="container-fluid">
-    <div class="row text-center">
-      <div class="search mt-3">
-        <button v-on:click="scheduleFlight">Schedule</button>
-      </div>
-    </div>
+    <div class="row align-items-center justify-content-center">
+  <div class="col-auto">
+    <h3 class="mb-0">Flight Real-time Monitoring</h3> <!-- Remove bottom margin to bring closer to the button -->
+  </div>
+  <div class="col-auto">
+    <button v-on:click="scheduleFlight" class="btn btn-primary">Schedule</button>
+  </div>
+</div>
+
     <div class="row">
       <div class="col">
 
