@@ -1,77 +1,75 @@
 <script setup>
-import WelcomeItem from './WelcomeItem.vue'
-import DocumentationIcon from './icons/IconDocumentation.vue'
-import ToolingIcon from './icons/IconTooling.vue'
-import CommunityIcon from './icons/IconCommunity.vue'
-import NavBar from './NavBar.vue'
+import WelcomeItem from "./WelcomeItem.vue";
+import DocumentationIcon from "./icons/IconDocumentation.vue";
+import ToolingIcon from "./icons/IconTooling.vue";
+import CommunityIcon from "./icons/IconCommunity.vue";
+import NavBar from "./NavBar.vue";
 </script>
-
-
-  
 
 <template>
   <NavBar></NavBar>
-  <div id="app" class="container border border-4 rounded-3 bg-white bg-gradient bg-opacity-75 p-5">
-  <div>
-    <br><br>
-    <img alt="Vue logo" class="logo" src="../assets/home.png" width="400px" height="400px" />
-  </div>
-  <div >
-
-    <WelcomeItem  >
-      <br>
-    <template #icon>
-      <DocumentationIcon />
-    </template>
-    <div>
-      <div class=" text-start"><h3>Flight Reassignment</h3></div>
-    
-
-    <p class="text-start">Allows you to reassign planes and crews in response to flight cancellations or disruptions</p>
-    </div>
-  </WelcomeItem>
-
-  
-  <WelcomeItem>
-    <br><br>
-      <template #icon>
-        <ToolingIcon />
-      </template>
-      <div>
-        <div class=" text-start"><h3>Passenger Management</h3></div>
-    
-
-      <p class="text-start">Allows you to manage passenger information to provide assistance to affected customers during flight disruptions</p>
-
-      <br />
+  <div id="app" class="container border rounded-3 bg-white bg-opacity-75 p-5">
+    <div class="row">
+      <div class="col">
+        <img
+          alt="Vue logo"
+          class="logo"
+          src="../assets/home.png"
+          width="400px"
+          height="400px"
+        />
       </div>
-    
-  </WelcomeItem>
+      <div class="col">
+        <div>
+          <WelcomeItem>
+            <template #icon>
+              <DocumentationIcon />
+            </template>
+            <div>
+              <h3>Flight Reassignment</h3>
+              <p>
+                Allows you to reassign planes and crews in response to flight
+                cancellations or disruptions
+              </p>
+            </div>
+          </WelcomeItem>
 
-  
-  
+          <WelcomeItem>
+            <template #icon>
+              <ToolingIcon />
+            </template>
+            <div>
+              <h3>Passenger Management</h3>
+              <p>
+                Allows you to manage passenger information to provide assistance
+                to affected customers during flight disruptions
+              </p>
+              <br />
+            </div>
+          </WelcomeItem>
 
-  <WelcomeItem>
-    <br>
-    <template #icon>
-      <CommunityIcon />
-    </template>
-    <div>
-      <div class=" text-start"><h3>Live Chat</h3></div>
-    
-
-    <p class="text-start">Allows you to interact with the customers to know their details to help you in rescheduling their flight efficiently</p>
+          <WelcomeItem>
+            <template #icon>
+              <CommunityIcon />
+            </template>
+            <div>
+              <div><h3>Dashboard Analysis</h3></div>
+              <p>
+                Allows you to interact with the customers to know their details
+                to help you in rescheduling their flight efficiently
+              </p>
+            </div>
+          </WelcomeItem>
+        </div>
+      </div>
     </div>
-  </WelcomeItem>
   </div>
-</div>
-
-
-  
 </template>
 
 <style scoped>
-
+.container {
+  margin-top: 150px;
+}
 header {
   line-height: 1.5;
 }
@@ -96,20 +94,16 @@ header {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
-    
   }
   #app {
     grid-template-columns: 1fr 1fr;
   }
 }
 .img {
-  background-image: url('../assets/94999.png');
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    background-size: contain;
+  background-image: url("../assets/94999.png");
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
 }
-
-
-
 </style>
