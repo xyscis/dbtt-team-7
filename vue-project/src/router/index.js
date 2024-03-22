@@ -6,6 +6,10 @@ import Login  from "@/components/Login.vue";
 import FlightReassignment from "@/components/FlightReassignment.vue";
 import CrewList from "@/components/CrewList.vue"; 
 import UpdatedFlightReassignment from "@/components/UpdatedFlightReassignment.vue"; 
+import Weather from "@/components/Weather.vue"; 
+import Dashboards from "@/components/Dashboards.vue"; 
+
+
 
 const routes = [
     {
@@ -43,6 +47,18 @@ const routes = [
         name: 'UpdatedFlightReassignment',
         component: UpdatedFlightReassignment,
       },
+
+      {
+        path: '/weather', 
+        name: 'Weather',
+        component: Weather,
+      },
+
+      {
+        path: '/dashboards', 
+        name: 'Dashboards',
+        component: Dashboards,
+      }
 
 
 ]
