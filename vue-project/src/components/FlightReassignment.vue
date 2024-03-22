@@ -2,152 +2,124 @@
   <NavBar></NavBar>
   <div>
     <div class="wrapper">
-
-      <div class="container">
-
-      <div class="container border border-4 rounded-3 bg-white bg-gradient p-5"> 
-
-
-        <div class="row content">
-          <div class="row">
-            <div class="col chart">
-              <div class="title">
-                Real-time monitoring on the number of flight requests
-              </div>
-              <img
-                v-if="showOriginalImage"
-                src="../assets/barchart.PNG"
-                alt="Original Bar Chart"
-              />
-              <img v-else src="../assets/barchart2.PNG" alt="New Bar Chart" />
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col chart">
+            <div class="title">
+              Real-time monitoring on the number of flight requests
             </div>
-
-            <!-- <div class="col chart">
-              <div class="title">Forcast data</div>
-
-            <div class="col chart">
-              <div class="title">
-                Forecast data
-              </div>
-
-              <img
-                src="../assets/regression model.PNG"
-                alt="Original Bar Chart"
-              />
-            </div> -->
+            <img
+              v-if="showOriginalImage"
+              src="../assets/barchart.PNG"
+              alt="Original Bar Chart"
+            />
+            <img v-else src="../assets/barchart2.PNG" alt="New Bar Chart" />
           </div>
-
-          <div class="row">
-            <div class="data-section">
-              <div class="search">
-                <button v-on:click="scheduleFlight">Schedule</button>
-              </div>
-              <div class="table-container">
-                <table border="1">
-                  <thead>
-                    <tr>
-                      <th>Flight Number</th>
-                      <th>Origin</th>
-                      <th>Destination</th>
-                      <th>Date</th>
-                      <th>Scheduled Departure</th>
-                      <th>Departure</th>
-                      <th>Scheduled Arrival</th>
-                      <th>Arrival</th>
-                      <th>Flight Status</th>
-                      <th>Aircraft Type</th>
-                      <th>Crew ID (Cabin Crew)</th>
-                      <th>Distance (miles)</th>
-                      <th>Scheduled Departure Date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>SW1009</td>
-                      <td>SEA</td>
-                      <td>DEN</td>
-                      <td>2024-07-01</td>
-                      <td>2024-07-04</td>
-                      <td>09:15:00</td>
-                      <td>2024-07-07</td>
-                      <td>09:00</td>
-                      <td>Delayed</td>
-                      <td>Boeing 737-700</td>
-                      <td>FA209, FA309</td>
-                      <td>1022</td>
-                      <td>2024-07-04</td>
-                    </tr>
-                    <tr>
-                      <td>SW1010</td>
-                      <td>GEG</td>
-                      <td>MDW</td>
-                      <td>2024-09-01</td>
-                      <td>2024-09-02</td>
-                      <td>09:15:00</td>
-                      <td>2024-09-05</td>
-                      <td>09:00</td>
-                      <td>Cancelled</td>
-                      <td>Boeing 737 MAX 8</td>
-                      <td>FA210, FA310</td>
-                      <td>1507</td>
-                      <td>2024-09-02</td>
-                    </tr>
-                    <tr>
-                      <td>SW1011</td>
-                      <td>ATL</td>
-                      <td>SFO</td>
-                      <td>2024-05-25</td>
-                      <td>2024-05-27</td>
-                      <td>09:15:00</td>
-                      <td>2024-05-30</td>
-                      <td>09:00</td>
-                      <td>Cancelled</td>
-                      <td>Boeing 737 MAX 7</td>
-                      <td>FA211, FA311</td>
-                      <td>2134</td>
-                      <td>2024-05-27</td>
-                    </tr>
-                    <tr>
-                      <td>SW1012</td>
-                      <td>AUS</td>
-                      <td>GEG</td>
-                      <td>2024-02-17</td>
-                      <td>2024-02-19</td>
-                      <td>09:15:00</td>
-                      <td>2024-02-22</td>
-                      <td>09:00</td>
-                      <td>Delayed</td>
-                      <td>Boeing 737-800</td>
-                      <td>FA212, FA312</td>
-                      <td>1600</td>
-                      <td>2024-02-19</td>
-                    </tr>
-                    <tr>
-                      <td>SW1013</td>
-                      <td>JFK</td>
-                      <td>TPA</td>
-                      <td>2024-11-26</td>
-                      <td>2024-11-28</td>
-                      <td>09:15:00</td>
-                      <td>2024-11-30</td>
-                      <td>09:00</td>
-                      <td>Delayed</td>
-                      <td>Boeing 737-800</td>
-                      <td>FA213, FA313</td>
-                      <td>1006</td>
-                      <td>2024-11-28</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+          <div class="col">
+            <div class="table-container">
+              <table border="1">
+                <thead>
+                  <tr>
+                    <th>Flight Number</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Date</th>
+                    <th>Scheduled Departure</th>
+                    <th>Departure</th>
+                    <th>Scheduled Arrival</th>
+                    <th>Arrival</th>
+                    <th>Flight Status</th>
+                    <th>Aircraft Type</th>
+                    <th>Crew ID (Cabin Crew)</th>
+                    <th>Distance (miles)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>SW1009</td>
+                    <td>SEA</td>
+                    <td>DEN</td>
+                    <td>2024-07-01</td>
+                    <td>2024-07-04</td>
+                    <td>09:15:00</td>
+                    <td>2024-07-07</td>
+                    <td>09:00</td>
+                    <td>Delayed</td>
+                    <td>Boeing 737-700</td>
+                    <td>FA209, FA309</td>
+                    <td>1022</td>
+                  </tr>
+                  <tr>
+                    <td>SW1010</td>
+                    <td>GEG</td>
+                    <td>MDW</td>
+                    <td>2024-09-01</td>
+                    <td>2024-09-02</td>
+                    <td>09:15:00</td>
+                    <td>2024-09-05</td>
+                    <td>09:00</td>
+                    <td>Cancelled</td>
+                    <td>Boeing 737 MAX 8</td>
+                    <td>FA210, FA310</td>
+                    <td>1507</td>
+                  </tr>
+                  <tr>
+                    <td>SW1011</td>
+                    <td>ATL</td>
+                    <td>SFO</td>
+                    <td>2024-05-25</td>
+                    <td>2024-05-27</td>
+                    <td>09:15:00</td>
+                    <td>2024-05-30</td>
+                    <td>09:00</td>
+                    <td>Cancelled</td>
+                    <td>Boeing 737 MAX 7</td>
+                    <td>FA211, FA311</td>
+                    <td>2134</td>
+                  </tr>
+                  <tr>
+                    <td>SW1012</td>
+                    <td>AUS</td>
+                    <td>GEG</td>
+                    <td>2024-02-17</td>
+                    <td>2024-02-19</td>
+                    <td>09:15:00</td>
+                    <td>2024-02-22</td>
+                    <td>09:00</td>
+                    <td>Delayed</td>
+                    <td>Boeing 737-800</td>
+                    <td>FA212, FA312</td>
+                    <td>1600</td>
+                  </tr>
+                  <tr>
+                    <td>SW1013</td>
+                    <td>JFK</td>
+                    <td>TPA</td>
+                    <td>2024-11-26</td>
+                    <td>2024-11-28</td>
+                    <td>09:15:00</td>
+                    <td>2024-11-30</td>
+                    <td>09:00</td>
+                    <td>Delayed</td>
+                    <td>Boeing 737-800</td>
+                    <td>FA213, FA313</td>
+                    <td>1006</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
+        </div>
+        <div class="search">
+          <button v-on:click="scheduleFlight">Schedule</button>
         </div>
       </div>
     </div>
   </div>
   <div v-if="flightsAssigned" class="popup">
     <div class="popup-content">
+      <p>Flights have been assigned successfully!</p>
+      <button @click="closePopup">Close</button>
       <h4>Available Flights</h4>
       <table border="1">
         <thead>
@@ -215,61 +187,29 @@
       </table>
       <button @click="closePopup">Send</button>
     </div>
-    
   </div>
   <div v-if="flightsScheduled" class="popup">
-  <div class="popup-content">
-    <p>Flights have been successfully assigned !</p>
-    <button  @click="closeMsg">Close</button>
+    <div class="popup-content">
+      <p>Flights have been successfully assigned !</p>
+      <button @click="closeMsg">Close</button>
+    </div>
   </div>
-</div>
-  
 </template>
-
-
-<script setup>
-  import NavBar from './NavBar.vue';
-</script>
-
 
 <script>
 export default {
   data() {
     return {
       showOriginalImage: true,
-      flightsAssigned: false,
-      selectedFlights: {},
-      flightsScheduled: false,
-    
-
     };
   },
 
   methods: {
-    closePopup() {
-      const hasSelectedFlights = Object.values(this.selectedFlights).some(selected => selected);
-      if (hasSelectedFlights) {
-        this.flightsAssigned = false; 
-        this.flightsScheduled = true; 
-        this.showOriginalImage = !this.showOriginalImage; 
-    
-      } else {
-        alert('Please select at least one flight to schedule.'); // Simple validation feedback.
-      }
+    scheduleFlight() {
+      // this.flightsAssigned = true;
+      this.$router.push({ path: "/CrewList" });
     },
-    closeMsg(){
 
-      this.flightsScheduled= false;
-    },
-    scheduleFlight(){
-      this.flightsAssigned = true;
-    },
-    sendData() {
-      
-      this.flightsScheduled = true;
-      
-      
-    },
   },
 };
 </script>
@@ -277,73 +217,60 @@ export default {
 <style scoped>
 .title {
   text-align: center;
-  font-size: 20px;
+  font-size: 30px;
   margin-bottom: 20px;
+  color: #333; /* Darker font color for better readability */
+  font-weight: bold; /* Make title font bolder */
 }
 
-.wrapper {
-  display: flex;
-  align-items: left;
-  height: 70vh;
-  width: 70vw;
-}
+.container-fluid {
+  max-width: 90%; /* Restrict maximum width to avoid overly wide table */
+  margin: auto; /* Center the container */
+  padding: 20px;
 
-.container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.header {
-  text-align: center;
-  padding: 20px 0;
-}
-
-.content {
-  flex: 1;
-  display: flex;
-  padding: 0 20px;
-}
-
-.chart {
-  flex: 1;
-}
-
-.data-section {
-  flex: 1;
-}
-
-.chart img {
-  width: 100%;
-  max-width: 800px;
-}
-
-.table-container {
-max-height: 80vh;
-
-  max-height: 50vh;
-
-  overflow-y: auto;
-  overflow-x: auto;
-  
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow around the container */
 }
 
 table {
-  width: auto;
-  margin-left: 10px;
-  border-collapse: collapse;
+  width: 100%;
+  background: white;
+  border-collapse: collapse; /* Remove gaps between table cells */
+  margin-top: 20px; /* Space between title and table */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for the table */
 }
 
 th,
 td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: left;
+  border: 1px solid #ddd; /* Lighter border color */
+  padding: 12px 15px; /* More padding for table cells */
+  text-align: left; /* Align text to the left */
+  font-size: 18px; /* Slightly larger font-size for better readability */
 }
 
-.search {
-  margin-bottom: 20px;
-  text-align: center;
+th {
+  background-color: #007bff; /* Use a solid color for header background */
+  color: white; /* White text color for the header */
+  text-transform: uppercase; /* Make header texts uppercase */
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* Zebra striping for rows */
+}
+
+button {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners for buttons */
+  font-size: 18px; /* Larger font-size for better readability */
+  transition: background-color 0.3s ease; /* Smooth transition for mouse hover */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade for hover effect */
 }
 
 .popup {
@@ -354,7 +281,8 @@ td {
   background-color: white;
   border: 1px solid #ccc;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; /* Rounded corners for popup */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* More pronounced shadow for popup */
 }
 
 .popup-content {
@@ -364,4 +292,6 @@ td {
 .popup button {
   margin-top: 10px;
 }
+
+/* Add additional styles here for other elements as needed */
 </style>
