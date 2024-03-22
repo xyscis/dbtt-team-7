@@ -21,7 +21,8 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Flight Reassignment' }" @click="handleFlightReassignment">Flight Reassignment</li>
             <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Passenger Reassignment' }" @click="handlePassengerReassignment">Passenger Reassignment</li>
-            <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Live Chat' }" @click="handleLiveChat">Live Chat</li>
+            <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Dashboards Analysis' }" @click="handleDashboards">Dashboards Analysis</li>
+            <!-- <li class="nav-item btn nav-link navbar-btn-hover" :class="{ 'navbar-btn-active': activeButton === 'Live Chat' }" @click="handleLiveChat">Live Chat</li> -->
             <li class="nav-item btn ml-3 nav-link navbar-btn" @click="handleLogin">Logout</li>
           </ul>
         </div>
@@ -54,9 +55,9 @@
         activeButton.value = 'Passenger Reassignment';
       };
   
-      const handleLiveChat = () => {
-        router.push('/livechat');
-        activeButton.value = 'Live Chat';
+      const handleDashboards = () => {
+        router.push('/dashboards');
+        activeButton.value = 'Dashboards Analysis';
       };
   
       const handleLogin = async () => {
@@ -82,7 +83,7 @@
         }
       });
   
-      return { handleFlightReassignment, handlePassengerReassignment, handleLiveChat, handleLogin, activeButton };
+      return { handleFlightReassignment, handlePassengerReassignment, handleDashboards, handleLogin, activeButton };
     },
   };
   </script>
