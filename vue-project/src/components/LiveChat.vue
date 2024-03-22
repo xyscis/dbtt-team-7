@@ -1,8 +1,6 @@
-<!-- References: https://medium.com/@alen.ajam/building-a-simple-chat-app-with-vue-js-462c4a53c6ad -->
-
 <template>
     <NavBar></NavBar>
-    <div class="app-container border border-dark bg-white bg-opacity-75">
+    <div class="app-container border border-dark bg-gray">
         <div class="sidebar">
             <div class="search-box">
                 <input type="text" placeholder="Search" />
@@ -90,9 +88,12 @@ export default {
 <style>
 .app-container {
     display: flex;
-    height: 80vh;
-    width: 80vw;
-    
+    height: 60vh;
+    width: 60vw;
+}
+
+.bg-gray {
+    background-color: #f0f0f0; /* Change to your desired grey color */
 }
 
 .sidebar {
@@ -145,7 +146,8 @@ export default {
     border-radius: 10px;
     width: fit-content;
     max-width: 50%;
-    align-self: flex-start;}
+    align-self: flex-start;
+}
 
 .message.mine {
     background-color: #dcf8c6;
@@ -157,7 +159,6 @@ export default {
     color: #333;
     margin-bottom: 4px;
 }
-
 
 .input-box {
     display: flex;
