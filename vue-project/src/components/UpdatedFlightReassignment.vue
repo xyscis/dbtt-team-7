@@ -10,11 +10,11 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="search">
             <button v-on:click="scheduleFlight">Schedule</button>
           </div>
-        </div>
+        </div> -->
 
         <div class="table-container">
           <table border="1">

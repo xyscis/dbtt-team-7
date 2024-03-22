@@ -1,5 +1,7 @@
 <template>
+  
   <div class="container-fluid">
+  
     <div class="row">
       <h1 style="text-align: center;">Flights that Need Reassignment</h1>
       <table border="1">
@@ -68,11 +70,8 @@
 
   <button @click="sendData">Send</button>
   <div v-if="showMessage" class="popup">
-    <div class="popup-content">
-      <!-- Use preformatted text to respect newlines -->
-      <pre>{{ popupMessage }}</pre>
-      <button @click="closeMessagePopup">Close</button>
-    </div>
+      <div v-html="popupMessage"></div>
+    <button @click="closeMessagePopup">Close</button>
   </div>
 
 </template>
@@ -105,20 +104,23 @@ export default {
       const selectedFlights = flights.filter(flight => this.selectedFlights[flight.key]);
 
       if (selectedFlights.length > 1) {
-        // Construct a message for multiple flights
-        this.popupMessage = "The following flights and crews have been successfully assigned:\n" +
-                            selectedFlights.map(flight => `• Flight number ${flight.flightNum} with crew ${flight.crew}`).join('\n');
-      } else if (selectedFlights.length === 1) {
-        // Construct a message for a single flight
-        const flight = selectedFlights[0];
-        this.popupMessage = `Flight number ${flight.flightNum} with crew ${flight.crew} has been newly assigned.`;
-      } else {
-        // No flights selected
-        alert("Please select at least one flight to schedule."); // Simple validation feedback
-        return; // Exit the method early
-      }
+    // Construct a message for multiple flights using HTML list for better formatting
+    this.popupMessage = "The following flights and crews have been successfully assigned:<ul>" +
+                    selectedFlights.map(flight => `<li>Flight number ${flight.flightNum} with crew ${flight.crew}</li>`).join('') +
+                    "</ul>";
 
-      this.showMessage = true; // Show the popup
+  } else if (selectedFlights.length === 1) {
+    // Construct a message for a single flight
+    const flight = selectedFlights[0];
+    this.popupMessage = `Flight number ${flight.flightNum} with crew ${flight.crew} has been newly assigned.`;
+  } else {
+    // No flights selected
+    this.popupMessage = "Please select at least one flight to schedule." // Simple validation feedback
+    return; 
+  }
+
+
+      this.showMessage = true; 
     },
 
 
@@ -140,30 +142,52 @@ export default {
 }
 
 .container-fluid {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  margin-top: 10px;
+  max-width: 90%; /* Restrict maximum width to avoid overly wide table */
+  margin: auto; /* Center the container */
+  padding: 20px;
 }
 
 table {
   width: 100%;
   background: white;
-  overflow-y: auto;
-  overflow-x: auto;
-  font-size: 20px; /* Adjust table font size for better readability */
+  border-collapse: collapse; /* Remove gaps between table cells */
+  margin-top: 20px; /* Space between title and table */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for the table */
 }
 
 th, td {
-  border: 1px solid #ddd; /* Lighter border for a softer look */
-  padding: 16px; /* More padding for better spacing */
-  text-align: center;
-  font-size: 18px; /* Increase font size for better readability */
+  border: 1px solid #ddd; /* Lighter border color */
+  padding: 12px 15px; /* More padding for table cells */
+  text-align: left; /* Align text to the left */
+  font-size: 18px; /* Slightly larger font-size for better readability */
 }
+th {
+  background-color: #007bff; /* Use a solid color for header background */
+  color: white; /* White text color for the header */
+  text-transform: uppercase; /* Make header texts uppercase */
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* Zebra striping for rows */
+}
+
+button {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners for buttons */
+  font-size: 18px; /* Larger font-size for better readability */
+  transition: background-color 0.3s ease; /* Smooth transition for mouse hover */
+}
+
 
 input[type="checkbox"] {
   width: 25px;
   height: 25px;
   cursor: pointer;
+
 }
 
 .popup {
@@ -178,12 +202,13 @@ input[type="checkbox"] {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
   max-width: 600px; /* Maximum width to avoid overly wide pop-ups */
   width: 90%; /* Ensure it doesn't stretch too far on smaller screens */
+  
 }
 
 .popup-content {
   text-align: center;
   font-size: 20px; /* Larger font size for better readability */
-  color: #333; /* Darker text for better contrast */
+  /* color: #333; Darker text for better contrast */
 }
 
 .popup button {
