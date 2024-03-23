@@ -31,6 +31,13 @@ npm install vue-router@latest
 npm run dev
 ```
 
+### Username and Password to Login
+
+```sh
+Username: john
+Password: password123
+```
+
 ## Technologies Used to Develop the Website
 Vue, Javascript, HTML, CSS
 
