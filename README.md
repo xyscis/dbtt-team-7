@@ -20,12 +20,12 @@ npm install
 npm install bootstrap
 ```
 
-### Instal Vue-Router
+### Install Vue-Router
 ```sh
 npm install vue-router@latest
 ```
 
-### Compile and Hot-Reload for Development
+### Run the Codes
 
 ```sh
 npm run dev
