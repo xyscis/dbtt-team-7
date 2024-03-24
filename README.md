@@ -17,6 +17,8 @@ cd vue-project
 
 ## Project Setup
 
+### Install npm
+- [Downloading of Node.js is also required] (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 ```sh
 npm install
 ```
@@ -42,12 +44,20 @@ Username: john
 Password: password123
 ```
 
-### Technologies Used to Develop the Website
+## Technologies Used to Develop the Website
 Vue, Javascript, HTML, CSS
 
 ## Helpful references
 - [Vue.js] (https://vuejs.org/)
 - [Vue Boostrap] (https://bootstrap-vue.org/)
+
+## DBTT G10T7 Team Members
+- Chua Xinyan
+- Emma Pédamon
+- Ho Wen Jun Shane
+- Lee Jia Wen
+- Lee Kern
+- Zachary Tai
 
 
 
