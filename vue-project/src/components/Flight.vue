@@ -18,12 +18,14 @@
     text-align: center;
     margin-top: 20px;
     background-color: #ECECEC; 
+    
   }
   
   .charts {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
+    
   }
   
   </style>

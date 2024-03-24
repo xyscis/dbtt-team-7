@@ -97,6 +97,7 @@ header {
   }
   #app {
     grid-template-columns: 1fr 1fr;
+    
   }
 }
 .img {

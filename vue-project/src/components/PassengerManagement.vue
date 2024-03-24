@@ -35,16 +35,16 @@
                     <br>
                     <div class="btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-outline-primary p-2">
-                            <input type="checkbox" autocomplete="off"> John
+                            <input type="checkbox" autocomplete="off"> John Lim
                         </label> <br> 
                         <label class="btn btn-outline-primary p-2">
-                            <input type="checkbox" autocomplete="off"> Tim
+                            <input type="checkbox" autocomplete="off"> Tim Tam
                         </label> <br>
                         <label class="btn btn-outline-primary p-2">
-                            <input type="checkbox" autocomplete="off"> Tam
+                            <input type="checkbox" autocomplete="off"> Tam Tim
                         </label> <br>
                         <label class="btn btn-outline-primary p-2">
-                            <input type="checkbox" autocomplete="off"> Joe
+                            <input type="checkbox" autocomplete="off"> Joe Mama
                         </label> <br>
                     </div>
 

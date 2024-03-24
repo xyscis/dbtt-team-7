@@ -7,9 +7,9 @@ import Flight from "./Flight.vue";
 <template>
   <div class="d-flex justify-content-center align-items-center vh-100">
     <NavBar></NavBar>
-    <div class="container-fluid">
+    <div class="container">
       <!-- Tabs -->
-      <ul class="nav nav-tabs">
+      <ul class="nav nav-tabs nav-fill">
         <li class="nav-item">
           <a class="nav-link active" data-bs-toggle="tab" href="#weatherTab"
             >Weather Analysis</a
@@ -34,4 +34,22 @@ import Flight from "./Flight.vue";
   </div>
 </template>
 
-<style></style>
+<style scoped>
+.container {
+  max-width: 1600px; /* Adjust the maximum width as needed */
+  max-height: 700px;
+  overflow-y: auto;
+  
+}
+
+.nav-link {
+  padding: 0.5rem 1rem; /* Adjust padding to make tabs more compact */
+}
+
+.tab-content {
+  margin-top: 1rem; /* Add margin between tabs and content */
+  
+  
+}
+
+</style>

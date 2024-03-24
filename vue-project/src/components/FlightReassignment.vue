@@ -3,6 +3,7 @@ import NavBar from "./NavBar.vue";
 </script>
 <template>
   <NavBar></NavBar>
+  <br>
   <div class="container-fluid">
     <div class="row align-items-center justify-content-center">
   <div class="col-auto">
@@ -12,12 +13,13 @@ import NavBar from "./NavBar.vue";
     <button v-on:click="scheduleFlight" class="btn btn-primary">Schedule</button>
   </div>
 </div>
+<br>
 
     <div class="row">
       <div class="col">
 
       </div>
-      <div class="col">
+      <div class="table-container">
         <table border="1">
         <thead>
           <tr>
@@ -273,5 +275,11 @@ button:hover {
 
 .container-fluid {
   margin-top: 100px;
+    
+}
+.table-container {
+  max-height: 600px; /* Set the maximum height of the container */
+  max-width: 1700px;
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 </style>
