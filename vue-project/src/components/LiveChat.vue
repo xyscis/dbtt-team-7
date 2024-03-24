@@ -1,6 +1,6 @@
 <template>
     <NavBar></NavBar>
-    <div class="app-container border border-dark bg-gray">
+    <div class="app-container border border-dark bg-white bg-opacity-75">
         <div class="sidebar">
             <div class="search-box">
                 <input type="text" placeholder="Search" />
