@@ -15,7 +15,7 @@ Afterwhich,
 cd vue-project
 ```
 
-### Project Setup
+## Project Setup
 
 ```sh
 npm install
