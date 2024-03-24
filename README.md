@@ -1,36 +1,63 @@
 # DBTT G10 Team 7
 
-This is G10 Team 7 prototype where we aim to help Southwest Airlines (SA) to improve their operational efficiency through our ' "SA" operations website '.
+This is G10 Team 7 prototype where we aim to help Southwest Airlines (SA) to improve their operational efficiency through our proposed website application.
 
-## Recommended IDE Setup
+## What to do:
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### 1. Clone to your repository
+On you preferred IDE, open the folder that you wish to put this project and in and run the following code:
+```
+git clone https://github.com/xyscis/dbtt-team-7.git
+```
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Afterwhich, 
+```
+cd vue-project
+```
 
 ## Project Setup
 
+### Install npm
+- [Downloading of Node.js is also required] (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 ```sh
 npm install
 ```
+
 ### Install Boostrap
 ```sh
 npm install bootstrap
 ```
 
-### Instal Vue-Router
+### Install Vue-Router
 ```sh
 npm install vue-router@latest
 ```
 
-### Compile and Hot-Reload for Development
-
+### Run the Codes in Your Shell
 ```sh
 npm run dev
 ```
 
+### Username and Password to Login in Our Website Application
+```sh
+Username: john
+Password: password123
+```
+
 ## Technologies Used to Develop the Website
 Vue, Javascript, HTML, CSS
+
+## Helpful references
+- [Vue.js] (https://vuejs.org/)
+- [Vue Boostrap] (https://bootstrap-vue.org/)
+
+## DBTT G10T7 Team Members
+- Chua Xinyan
+- Emma Pédamon
+- Ho Wen Jun Shane
+- Lee Jia Wen
+- Lee Kern
+- Zachary Tai
+
+
 

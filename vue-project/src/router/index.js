@@ -1,9 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from '@/components/HomePage.vue'
-import PassengerManagement from "@/components/PassengerManagement.vue";
+import PassengerReassignment from "@/components/PassengerReassignment.vue";
 import LiveChat from "@/components/LiveChat.vue";
 import Login  from "@/components/Login.vue";
 import FlightReassignment from "@/components/FlightReassignment.vue";
+import CrewList from "@/components/CrewList.vue"; 
+import UpdatedFlightReassignment from "@/components/UpdatedFlightReassignment.vue"; 
+import Weather from "@/components/Weather.vue";
+import Flight from "@/components/Flight.vue"; 
+import Dashboards from "@/components/Dashboards.vue"; 
+
 
 
 const routes = [
@@ -18,9 +24,9 @@ const routes = [
         component: Home
     },
     {
-        path: '/passengermanagement',
-        name: 'PassengerManagement',
-        component: PassengerManagement
+        path: '/passengerreassignment',
+        name: 'PassengerReassignment',
+        component: PassengerReassignment
     },
     {
         path: '/livechat',
@@ -32,8 +38,35 @@ const routes = [
         name: 'FlightReassignment',
         component: FlightReassignment
     },
-    
-    
+    {
+        path: '/crewlist', 
+        name: 'CrewList',
+        component: CrewList,
+      },
+      {
+        path: '/updatedflightreassignment', 
+        name: 'UpdatedFlightReassignment',
+        component: UpdatedFlightReassignment,
+      },
+
+      {
+        path: '/weather', 
+        name: 'Weather',
+        component: Weather,
+      },
+
+      {
+        path: '/flight', 
+        name: 'Flight',
+        component: Flight,
+      },
+      
+
+      {
+        path: '/dashboards', 
+        name: 'Dashboards',
+        component: Dashboards,
+      }
 
 
 ]

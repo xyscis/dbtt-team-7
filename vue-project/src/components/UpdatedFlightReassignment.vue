@@ -3,22 +3,15 @@ import NavBar from "./NavBar.vue";
 </script>
 <template>
   <NavBar></NavBar>
-  <div class="container-fluid">
-    <div class="row align-items-center justify-content-center">
-  <div class="col-auto">
-    <h3 class="mb-0">Flight Real-time Monitoring</h3> <!-- Remove bottom margin to bring closer to the button -->
-  </div>
-  <div class="col-auto">
-    <button v-on:click="scheduleFlight" class="btn btn-primary">Schedule</button>
-  </div>
-</div>
 
-    <div class="row">
-      <div class="col">
-
+  <div class="container-fluid mt-5">
+    <div class="row mt-5">
+      <div class="chart">
+        <div class="title">Rescheduled Flights</div>
       </div>
-      <div class="col">
-        <table border="1">
+    </div>
+    <div class="table-container">
+      <table border="1">
         <thead>
           <tr>
             <th>Flight Number</th>
@@ -45,38 +38,10 @@ import NavBar from "./NavBar.vue";
             <td>09:15:00</td>
             <td>2024-07-07</td>
             <td>09:00</td>
-            <td>Delayed</td>
+            <td style="background-color: green">Rescheduled</td>
             <td>Boeing 737-700</td>
             <td>FA209, FA309</td>
             <td>1022</td>
-          </tr>
-          <tr>
-            <td>SW1035</td>
-            <td>DEN</td>
-            <td>LAX</td>
-            <td>2024-09-01</td>
-            <td>2024-09-02</td>
-            <td>09:15:00</td>
-            <td>2024-09-05</td>
-            <td>09:00</td>
-            <td style="background-color: green">On time</td>
-            <td>Boeing 737 MAX 8</td>
-            <td>FA235, FA335</td>
-            <td>861</td>
-          </tr>
-          <tr>
-            <td>SW1035</td>
-            <td>JFK</td>
-            <td>PHX</td>
-            <td>2024-09-01</td>
-            <td>2024-09-02</td>
-            <td>09:15:00</td>
-            <td>2024-09-05</td>
-            <td>09:00</td>
-            <td style="background-color: green">On time</td>
-            <td>Boeing 737 MAX 8</td>
-            <td>FA249, FA349</td>
-            <td>1427</td>
           </tr>
           <tr>
             <td>SW1010</td>
@@ -87,24 +52,10 @@ import NavBar from "./NavBar.vue";
             <td>09:15:00</td>
             <td>2024-09-05</td>
             <td>09:00</td>
-            <td>Cancelled</td>
+            <td style="background-color: green">Rescheduled</td>
             <td>Boeing 737 MAX 8</td>
             <td>FA210, FA310</td>
             <td>1507</td>
-          </tr>
-          <tr>
-            <td>SW1014</td>
-            <td>SEA</td>
-            <td>LGA</td>
-            <td>2024-09-01</td>
-            <td>2024-09-02</td>
-            <td>09:15:00</td>
-            <td>2024-09-05</td>
-            <td>09:00</td>
-            <td style="background-color: green">On time</td>
-            <td>Boeing 737</td>
-            <td>FA214, FA314</td>
-            <td>2406</td>
           </tr>
           <tr>
             <td>SW1011</td>
@@ -115,7 +66,7 @@ import NavBar from "./NavBar.vue";
             <td>09:15:00</td>
             <td>2024-05-30</td>
             <td>09:00</td>
-            <td>Cancelled</td>
+            <td style="background-color: green">Rescheduled</td>
             <td>Boeing 737 MAX 7</td>
             <td>FA211, FA311</td>
             <td>2134</td>
@@ -129,7 +80,7 @@ import NavBar from "./NavBar.vue";
             <td>09:15:00</td>
             <td>2024-02-22</td>
             <td>09:00</td>
-            <td>Delayed</td>
+            <td style="background-color: green">Rescheduled</td>
             <td>Boeing 737-800</td>
             <td>FA212, FA312</td>
             <td>1600</td>
@@ -143,49 +94,25 @@ import NavBar from "./NavBar.vue";
             <td>09:15:00</td>
             <td>2024-11-30</td>
             <td>09:00</td>
-            <td>Delayed</td>
+            <td style="background-color: green">Rescheduled</td>
             <td>Boeing 737-800</td>
             <td>FA213, FA313</td>
             <td>1006</td>
           </tr>
-          <tr>
-            <td>SW1021</td>
-            <td>LAS</td>
-            <td>JFK</td>
-            <td>2024-09-01</td>
-            <td>2024-09-02</td>
-            <td>09:15:00</td>
-            <td>2024-09-05</td>
-            <td>09:00</td>
-            <td style="background-color: green">On time</td>
-            <td>Boeing 737</td>
-            <td>FA229, FA329</td>
-            <td>651</td>
-          </tr>
         </tbody>
       </table>
-
-      </div>
-      <div class="col">
-        
-      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  name: "UpdatedFlightReassignment",
   data() {
-    return {
-      showOriginalImage: true,
-    };
+    return {};
   },
 
-  methods: {
-    scheduleFlight() {
-      this.$router.push({ path: "/CrewList" });
-    },
-  },
+  methods: {},
 };
 </script>
 
@@ -194,28 +121,24 @@ export default {
   text-align: center;
   font-size: 30px;
   margin-bottom: 20px;
-  color: #333; /* Darker font color for better readability */
   font-weight: bold; /* Make title font bolder */
 }
-.chart img {
-  max-width: 100%; /*Ensure the image does not exceed its container  */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Remove any default inline styling */
-  margin: 0 auto; /*  Center the image within its container  */
+
+.container-fluid {
+  max-width: 90%; /* Restrict maximum width to avoid overly wide table */
+  margin: auto; 
+  padding: 20px;
+
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow around the container */
 }
 
 table {
-
+  width: 100%;
   background: white;
   border-collapse: collapse; /* Remove gaps between table cells */
   margin-top: 20px; /* Space between title and table */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for the table */
-  overflow-y: auto;
-
-}
-.table-responsive {
-  overflow-y: auto; /* Enables vertical scrolling if content is taller than the container */
-  max-height: 400px; /* Or whatever height you prefer */
 }
 
 th,
@@ -242,13 +165,13 @@ button {
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  border-radius: 5px;
-  font-size: 18px;
-  transition: background-color 0.3s ease;
+  border-radius: 5px; /* Rounded corners for buttons */
+  font-size: 18px; /* Larger font-size for better readability */
+  transition: background-color 0.3s ease; /* Smooth transition for mouse hover */
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Darker shade for hover effect */
 }
 
 .popup {
@@ -259,8 +182,8 @@ button:hover {
   background-color: white;
   border: 1px solid #ccc;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px; /* Rounded corners for popup */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* More pronounced shadow for popup */
 }
 
 .popup-content {
@@ -271,7 +194,5 @@ button:hover {
   margin-top: 10px;
 }
 
-.container-fluid {
-  margin-top: 100px;
-}
+/* Add additional styles here for other elements as needed */
 </style>

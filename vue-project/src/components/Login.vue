@@ -54,10 +54,9 @@ export default {
 .full-screen-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 70vw;
-    /* background-color: #f9f9f9; */
+    margin-top: 200px;
+
+  
 }
 
 .card-container {
