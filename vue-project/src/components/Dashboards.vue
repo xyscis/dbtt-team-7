@@ -36,9 +36,10 @@ import Flight from "./Flight.vue";
 
 <style scoped>
 .container {
-  max-width: 1600px; /* Adjust the maximum width as needed */
+  max-width: 1200px; /* Adjust the maximum width as needed */
   max-height: 700px;
   overflow-y: auto;
+  margin-top: 100px;
   
 }
 
